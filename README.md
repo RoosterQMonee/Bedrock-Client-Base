@@ -22,3 +22,5 @@ if you want to use this for your own projects, you can use this code for whateve
 - [ ] SDK
 
 - [ ] Module System
+
+- [ ] Event System
