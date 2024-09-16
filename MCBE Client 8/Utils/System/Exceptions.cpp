@@ -9,6 +9,9 @@
 #include <Psapi.h>
 
 
+// prax.
+
+
 LONG WINAPI TopLevelExceptionHandler(const PEXCEPTION_POINTERS pExceptionInfo)
 {
     const std::string exceptionCode = "Except. Code: " + String::ToHex(pExceptionInfo->ExceptionRecord->ExceptionCode) + "\n";

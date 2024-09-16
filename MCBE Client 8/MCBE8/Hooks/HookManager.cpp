@@ -6,6 +6,7 @@
 
 #include "Hooks/Input/Keymap.h"
 #include "Hooks/Game/FOV.h"
+#include "Hooks/Render/D3D.h"
 
 
 std::vector<Hook*> HookManager::Hooks = std::vector<Hook*>();
@@ -15,6 +16,7 @@ void HookManager::Init() {
     Logger::Write<LogLevel::INFO>("Init", "Initializing hooks");
 
     // TODO: wait for MC ClientInstance?
+    Hooks.emplace_back(new D3D());
     Hooks.emplace_back(new KeyMap());
     Hooks.emplace_back(new FOV());
 

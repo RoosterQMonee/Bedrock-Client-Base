@@ -14,27 +14,22 @@
 #include <Utils/Memory/Memory.h>
 
 
-// forward declaractions (yippie)
+// forward declaractions
 bool InitializeMinHook();
 bool InitializeKiero();
 void CreateConsole();
 void AwaitShutdown();
 
-template <typename TRet, typename... TArgs>
-inline auto* gfc(void* Original) {
-	using Fn = TRet(__fastcall*)(TArgs...);
-	return reinterpret_cast<Fn>(Original);
-}
 
 void MCBE8::Init() {
-	MCBE8::ClientVersion = { 1, 0 };
+	MCBE8::ClientVersion = { 1, 2 };
 	MCBE8::Globals = DEFAULT_CONFIG;
+	MCBE8::Globals.ScreenData = ScreenInfo{ GetSystemMetrics(SM_CYSCREEN), GetSystemMetrics(SM_CXSCREEN) };
 	uint64_t StartInjectTime = MiscUtils::GetCurrentMs();
 
 	CreateConsole();
 	Exceptions::Init();
 
-	// Kiero manages MinHook
 	if (!InitializeKiero())
 		goto shutdown_client;
 
@@ -62,7 +57,7 @@ void MCBE8::Shutdown() {
 
 	Logger::Write<LogLevel::INFO>("Exit", "Removed Hooks");
 
-	Sleep(1000); // no crash pls :>
+	Sleep(1000); // no crash pls
 	FreeLibraryAndExitThread(MCBE8::ModuleHandle, 1);
 }
 
@@ -74,7 +69,6 @@ void AwaitShutdown() {
 		std::map<uint64_t, bool> keymap = MCBE8::Globals.Keymap;
 		std::vector<uint64_t> shutdown_key = MCBE8::Globals.ShutdownKeybind;
 
-		// C++ at it's finest.
 		if (std::all_of(
 			shutdown_key.begin(), shutdown_key.end(),
 			[&keymap](uint64_t key) { return keymap.find(key) != keymap.end();

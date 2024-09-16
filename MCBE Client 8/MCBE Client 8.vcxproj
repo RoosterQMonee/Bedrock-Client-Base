@@ -163,6 +163,7 @@
     <ClCompile Include="Dependencies\minhook\hook.c" />
     <ClCompile Include="Dependencies\minhook\trampoline.c" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="MCBE8\Hooks\Hooks\Render\D3D.cpp" />
     <ClCompile Include="Utils\Memory\Detour.cpp" />
     <ClCompile Include="MCBE8\Hooks\Hook.cpp" />
     <ClCompile Include="MCBE8\Hooks\HookManager.cpp" />
@@ -514,6 +515,12 @@
     <ClInclude Include="Dependencies\minhook\hde\table64.h" />
     <ClInclude Include="Dependencies\minhook\Minhook.h" />
     <ClInclude Include="Dependencies\minhook\trampoline.h" />
+    <ClInclude Include="MCBE8\Events\Event.h" />
+    <ClInclude Include="MCBE8\Events\EventHandler.h" />
+    <ClInclude Include="MCBE8\Events\Events\RenderEvents.h" />
+    <ClInclude Include="MCBE8\Events\Events\InputEvents.h" />
+    <ClInclude Include="MCBE8\Hooks\Hooks\Render\D3D.h" />
+    <ClInclude Include="Utils\Includes.h" />
     <ClInclude Include="Utils\Memory\Detour.h" />
     <ClInclude Include="MCBE8\Hooks\Hook.h" />
     <ClInclude Include="MCBE8\Hooks\Hooks\Game\FOV.h" />

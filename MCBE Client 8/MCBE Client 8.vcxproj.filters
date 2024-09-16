@@ -102,6 +102,9 @@
     <ClCompile Include="MCBE8\Hooks\Hooks\Game\FOV.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MCBE8\Hooks\Hooks\Render\D3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils\Memory\Memory.h">
@@ -1155,6 +1158,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MCBE8\Hooks\Hooks\Game\FOV.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MCBE8\Events\EventHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MCBE8\Events\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MCBE8\Events\Events\InputEvents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MCBE8\Events\Events\RenderEvents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MCBE8\Hooks\Hooks\Render\D3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
