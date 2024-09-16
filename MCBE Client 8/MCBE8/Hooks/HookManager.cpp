@@ -5,6 +5,7 @@
 
 
 #include "Hooks/Input/Keymap.h"
+#include "Hooks/Input/Mouse.h"
 #include "Hooks/Game/FOV.h"
 #include "Hooks/Render/D3D.h"
 
@@ -18,6 +19,7 @@ void HookManager::Init() {
     // TODO: wait for MC ClientInstance?
     Hooks.emplace_back(new D3D());
     Hooks.emplace_back(new KeyMap());
+    Hooks.emplace_back(new Mouse());
     Hooks.emplace_back(new FOV());
 
     for (Hook* hook : Hooks)
