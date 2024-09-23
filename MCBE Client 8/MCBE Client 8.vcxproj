@@ -137,6 +137,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalOptions>/Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -176,6 +177,7 @@
     <ClCompile Include="Utils\Logger\Logger.cpp" />
     <ClCompile Include="Utils\Memory\Memory.cpp" />
     <ClCompile Include="Utils\System\Exceptions.cpp" />
+    <ClCompile Include="Utils\System\Files.cpp" />
     <ClCompile Include="Utils\System\Misc.cpp" />
     <ClCompile Include="Utils\System\Window.cpp" />
   </ItemGroup>
@@ -522,6 +524,9 @@
     <ClInclude Include="MCBE8\Events\Events\InputEvents.h" />
     <ClInclude Include="MCBE8\Hooks\Hooks\Input\Mouse.h" />
     <ClInclude Include="MCBE8\Hooks\Hooks\Render\D3D.h" />
+    <ClInclude Include="MCBE8\Settings\NumberSetting.h" />
+    <ClInclude Include="MCBE8\Settings\Setting.h" />
+    <ClInclude Include="Utils\System\Files.h" />
     <ClInclude Include="Utils\Includes.h" />
     <ClInclude Include="Utils\Memory\Detour.h" />
     <ClInclude Include="MCBE8\Hooks\Hook.h" />

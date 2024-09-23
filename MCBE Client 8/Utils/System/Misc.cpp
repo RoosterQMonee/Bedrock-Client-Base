@@ -4,6 +4,19 @@
 #include <windows.h>
 
 
+std::string MiscUtils::GetRoamingPath()
+{
+    char* path = nullptr;
+    size_t length;
+
+    _dupenv_s(&path, &length, "appdata");
+
+    if (path == nullptr)
+        return "";
+
+    return std::string(path) + "\\..\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\RoamingState";
+};
+
 uint64_t MiscUtils::GetCurrentMs() {
 	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }

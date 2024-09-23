@@ -108,6 +108,9 @@
     <ClCompile Include="MCBE8\Hooks\Hooks\Input\Mouse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Utils\System\Files.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils\Memory\Memory.h">
@@ -1182,6 +1185,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MCBE8\Hooks\Hooks\Input\Mouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MCBE8\Settings\NumberSetting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MCBE8\Settings\Setting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\System\Files.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -12,6 +12,7 @@
 #include <SDK/SignatureManager.h>
 #include <MCBE8/Hooks/HookManager.h>
 #include <Utils/Memory/Memory.h>
+#include <Utils/System/Files.h>
 
 
 // forward declaractions
@@ -33,6 +34,7 @@ void MCBE8::Init() {
 	if (!InitializeKiero())
 		goto shutdown_client;
 
+	FileUtils::InitFileSystem();
 	SignatureManager::Init();
 	HookManager::Init();
 
