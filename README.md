@@ -11,16 +11,16 @@ if you want to use this for your own projects, you can use this code for whateve
 
 #### TODO:
 
-- [x] Make it load properly
+- [x] dont crash (preferably)
 
 - [x] Basic Logging
       
 - [x] Memory Tools
 
-- [ ] EnTT
+- [x] EnTT
+
+- [x] Event System
 
 - [ ] SDK
 
 - [ ] Module System
-
-- [ ] Event System
