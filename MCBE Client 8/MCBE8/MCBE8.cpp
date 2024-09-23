@@ -79,6 +79,8 @@ void AwaitShutdown() {
 
 		Sleep(10);
 	}
+
+	HookManager::Shutdown();
 }
 
 

@@ -3,6 +3,7 @@
 #include <MCBE8/MCBE8.h>
 #include <MCBE8/Hooks/Hooks/Input/Keymap.h>
 
+#include <MCBE8/Events/Events/InputEvents.h>
 #include <SDK/SignatureManager.h>
 #include <Utils/Memory/Memory.h>
 #include <thread>
@@ -16,6 +17,9 @@ void* keyMapDetour(uint64_t keyId, bool held) {
     auto oFunc = Memory::GetFastcall<void*, uint64_t, bool>(original);
 
     MCBE8::Globals.Keymap[keyId] = held;
+
+    auto event = nes::make_holder<ClientKeyEvent>(false, held, keyId);
+    MCBE8::EventDispatcher.trigger(event);
 
     return oFunc(keyId, held);
 }

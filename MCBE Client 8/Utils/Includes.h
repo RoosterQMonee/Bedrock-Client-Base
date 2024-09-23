@@ -5,6 +5,7 @@
 #include <Dependencies/imgui/imgui.h>
 #include <Dependencies/imgui/imgui_internal.h>
 #include <Dependencies/imgui/imgui_impl_dx11.h>
+#include <Dependencies/imgui/imgui_impl_dx12.h>
 #include <Dependencies/imgui/imgui_impl_win32.h>
 
 #include <d2d1.h>
