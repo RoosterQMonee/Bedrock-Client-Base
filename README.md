@@ -11,16 +11,8 @@ if you want to use this for your own projects, you can use this code for whateve
 
 #### TODO:
 
-- [x] dont crash (preferably)
-
-- [x] Basic Logging
-      
-- [x] Memory Tools
-
-- [x] EnTT
-
-- [x] Event System
-
-- [ ] SDK
+- [ ] (usable) SDK
 
 - [ ] Module System
+
+- [ ] Configs
