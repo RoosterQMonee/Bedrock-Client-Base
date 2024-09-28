@@ -53,7 +53,7 @@ void mouseDetour(void* _this, __int8 mouseButton, bool isDown, __int16 mouseX, _
 
 
 void Mouse::Init() {
-    uintptr_t mouseFuncAddr = SignatureManager::GetSignatureAddress(Signatures::Mouse);
+    uintptr_t mouseFuncAddr = SignatureManager::GetSignatureAddress(SignatureID::Mouse);
     mouseCallbackDetour = std::make_unique<Detour>("Mouse", mouseFuncAddr, &mouseDetour);
     mouseCallbackDetour->Enable();
     this->Detours.emplace_back(mouseCallbackDetour.get());

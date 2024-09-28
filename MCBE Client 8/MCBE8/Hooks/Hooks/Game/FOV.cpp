@@ -21,7 +21,7 @@ void* getFOVDetour(LevelRendererPlayer* self, float a, bool a2) {
 
 
 void FOV::Init() {
-    uintptr_t keymapFuncAddr = SignatureManager::GetSignatureAddress(Signatures::GetFOV);
+    uintptr_t keymapFuncAddr = SignatureManager::GetSignatureAddress(SignatureID::GetFOV);
     fovCallbackDetour = std::make_unique<Detour>("KeyMap", keymapFuncAddr, &getFOVDetour);
     fovCallbackDetour->Enable();
     this->Detours.emplace_back(fovCallbackDetour.get());

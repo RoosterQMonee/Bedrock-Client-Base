@@ -304,7 +304,7 @@ ULONG __fastcall HookReleaseD3D12(IDXGISwapChain3* pSwapChain) {
 	return oReleaseD3D12(pSwapChain);
 }
 
-void RenderBlur() {
+void RenderBlur(float strength) {
 	if (_pSwapChain == nullptr) return;
 	if (!MCBE8::Globals.RenderUI) return;
 
@@ -326,7 +326,7 @@ void RenderBlur() {
 				d2d1DeviceContext->CreateEffect(CLSID_D2D1GaussianBlur, &currentFrameContext.blur);
 
 				currentFrameContext.blur->SetInput(0, currentFrameContext.backBuffer.Get());
-				currentFrameContext.blur->SetValue(D2D1_GAUSSIANBLUR_PROP_STANDARD_DEVIATION, 10.0f);
+				currentFrameContext.blur->SetValue(D2D1_GAUSSIANBLUR_PROP_STANDARD_DEVIATION, strength);
 				currentFrameContext.blur->SetValue(D2D1_GAUSSIANBLUR_PROP_BORDER_MODE, D2D1_BORDER_MODE_HARD);
 				currentFrameContext.blur->SetValue(D2D1_GAUSSIANBLUR_PROP_OPTIMIZATION, D2D1_GAUSSIANBLUR_OPTIMIZATION_QUALITY);
 
@@ -340,7 +340,6 @@ void RenderBlur() {
 			}
 
 			d2d1DeviceContext->DrawImage(currentFrameContext.blur.Get());
-
 			d2d1DeviceContext->EndDraw();
 
 			d3d11On12Device->ReleaseWrappedResources(&d3d11Resources, 1);
@@ -487,7 +486,7 @@ long __fastcall hookPresentD3D12(IDXGISwapChain3* pSwapChain, UINT SyncInterval,
 
 		ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), d3d12CommandList);
 
-		RenderBlur();
+		RenderBlur(5.0f);
 
 		barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_RENDER_TARGET;
 		barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PRESENT;
@@ -538,6 +537,13 @@ void D3D::Init() {
 
 
 void D3D::UnHook() {
+	kiero::unbind(54);
+	kiero::unbind(58);
+	kiero::unbind(140);
+	kiero::unbind(145);
+	kiero::unbind(84);
+	kiero::unbind(85);
+
 	ReleaseRender();
 	Remove(MCBE8::Window);
 }

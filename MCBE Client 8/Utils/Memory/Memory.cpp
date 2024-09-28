@@ -7,20 +7,6 @@
 #include <execution>
 
 
-template <typename Ret, typename Type>
-static Ret& Memory::DirectAccess(Type* type, size_t offset) {
-    union {
-        size_t raw;
-        Type* source;
-        Ret* target;
-    } u;
-
-    u.source = type;
-    u.raw += offset;
-
-    return *u.target;
-}
-
 
 void Memory::PatchBytes(void* dst, void* src, unsigned int size) {
     DWORD oldprotect;         // RWX perms

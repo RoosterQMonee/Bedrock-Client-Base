@@ -7,6 +7,7 @@
 #include <cstdint>
 
 
+
 template <typename T>
 struct NumberSettingConfig {
 	T Value;
@@ -18,8 +19,7 @@ struct NumberSettingConfig {
 template <typename T>
 class NumberSetting : public Setting {
 public:
-	// PLEASE define min and max :)
-	NumberSetting(std::string name, std::string description, T value, T min = FLT_MIN, T max = FLT_MAX) : Name(name), Description(description) {
+	NumberSetting(std::string name, std::string description, T value, T min, T max) : Name(name), Description(description) {
 		assert(constexpr(std::is_arithmetic_v<T>) && "NumberSetting value is not an arithmetic type!");
 		this->Config = NumberSettingConfig<T>{ value, min, max };
 	}

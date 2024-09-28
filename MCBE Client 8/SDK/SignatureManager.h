@@ -5,7 +5,7 @@
 #include <map>
 
 
-enum Signatures {
+enum SignatureID {
 	Keymap = 0,
 	Mouse,
 	GetFOV
@@ -14,8 +14,8 @@ enum Signatures {
 
 class SignatureManager {
 public:
-	static inline std::map<Signatures, std::pair<uintptr_t, std::string>> SignatureMap = {};
+	static inline std::map<SignatureID, std::pair<uintptr_t, std::string>> SignatureMap = {};
 
 	static void Init();
-	static uintptr_t GetSignatureAddress(Signatures sig);
+	static uintptr_t GetSignatureAddress(SignatureID sig);
 };

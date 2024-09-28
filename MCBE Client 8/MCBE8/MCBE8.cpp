@@ -49,7 +49,7 @@ shutdown_client:
 void MCBE8::Shutdown() {
 	Logger::Write<LogLevel::WARN>("Exit", "Shutting down MCBE8");
 	
-	kiero::unbind(kiero::getRenderType() == kiero::RenderType::D3D12 ? 140 : 8);
+	HookManager::Shutdown();
 	kiero::shutdown();
 
 	Logger::Write<LogLevel::INFO>("Exit", "Disabled Kiero");

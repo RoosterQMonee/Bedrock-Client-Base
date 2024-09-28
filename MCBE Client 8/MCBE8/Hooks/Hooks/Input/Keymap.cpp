@@ -26,7 +26,7 @@ void* keyMapDetour(uint64_t keyId, bool held) {
 
 
 void KeyMap::Init() {
-    uintptr_t keymapFuncAddr = SignatureManager::GetSignatureAddress(Signatures::Keymap);
+    uintptr_t keymapFuncAddr = SignatureManager::GetSignatureAddress(SignatureID::Keymap);
     keyCallbackDetour = std::make_unique<Detour>("KeyMap", keymapFuncAddr, &keyMapDetour);
     keyCallbackDetour->Enable();
     this->Detours.emplace_back(keyCallbackDetour.get());
