@@ -166,6 +166,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="MCBE8\Hooks\Hooks\Input\Mouse.cpp" />
     <ClCompile Include="MCBE8\Hooks\Hooks\Render\D3D.cpp" />
+    <ClCompile Include="MCBE8\Modules\ModuleManager.cpp" />
     <ClCompile Include="Utils\Memory\Detour.cpp" />
     <ClCompile Include="MCBE8\Hooks\Hook.cpp" />
     <ClCompile Include="MCBE8\Hooks\HookManager.cpp" />

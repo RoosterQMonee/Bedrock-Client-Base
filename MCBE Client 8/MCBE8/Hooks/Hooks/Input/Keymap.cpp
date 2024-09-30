@@ -2,8 +2,9 @@
 
 #include <MCBE8/MCBE8.h>
 #include <MCBE8/Hooks/Hooks/Input/Keymap.h>
-
 #include <MCBE8/Events/Events/InputEvents.h>
+#include <MCBE8/Modules/ModuleManager.h>
+
 #include <SDK/SignatureManager.h>
 #include <Utils/Memory/Memory.h>
 #include <thread>
@@ -20,6 +21,8 @@ void* keyMapDetour(uint64_t keyId, bool held) {
 
     auto event = nes::make_holder<ClientKeyEvent>(false, held, keyId);
     MCBE8::EventDispatcher.trigger(event);
+
+    ModuleManager::HandleKeybinds(keyId, held);
 
     return oFunc(keyId, held);
 }
