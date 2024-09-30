@@ -528,11 +528,16 @@
     <ClInclude Include="MCBE8\Modules\ModuleManager.h" />
     <ClInclude Include="MCBE8\Settings\NumberSetting.h" />
     <ClInclude Include="MCBE8\Settings\Setting.h" />
+    <ClInclude Include="SDK\Math\Math.h" />
     <ClInclude Include="SDK\Math\Vector2.h" />
+    <ClInclude Include="SDK\Math\Vector3.h" />
+    <ClInclude Include="SDK\Math\Vector4.h" />
     <ClInclude Include="SDK\Packet\Packet.h" />
     <ClInclude Include="SDK\Packet\Packets\TextPacket.h" />
     <ClInclude Include="SDK\Packet\PacketTypes.h" />
     <ClInclude Include="SDK\Signatures.h" />
+    <ClInclude Include="Utils\Data\Formatting.h" />
+    <ClInclude Include="Utils\Data\Keys.h" />
     <ClInclude Include="Utils\Data\Math.h" />
     <ClInclude Include="Utils\System\Files.h" />
     <ClInclude Include="Utils\Includes.h" />
