@@ -7,7 +7,7 @@
 #include <winrt/Windows.UI.Core.h>
 
 
-class SystemUtils {
+class System {
 public:
 	static void SetWindowTitle(const winrt::param::hstring& title);
 };

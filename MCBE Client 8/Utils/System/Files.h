@@ -11,7 +11,7 @@ extern std::string AssetsFolder;
 extern std::string ConfigFolder;
 
 
-class FileUtils {
+class Files {
 public:
 	static std::string GetRoamingPath();
 	static void InitFileSystem();

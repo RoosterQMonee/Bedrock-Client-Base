@@ -10,3 +10,7 @@ public:
     void Init() override;
     void UnHook() override;
 };
+
+
+void RenderBlur(float strength);
+void RenderDirectionalBlur(float strength, float angle);

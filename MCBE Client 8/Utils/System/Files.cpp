@@ -3,7 +3,7 @@
 #include <windows.h>
 
 
-std::string FileUtils::GetRoamingPath()
+std::string Files::GetRoamingPath()
 {
     char* path = nullptr;
     size_t length;
@@ -16,24 +16,24 @@ std::string FileUtils::GetRoamingPath()
     return std::string(path) + "\\..\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\RoamingState";
 };
 
-void FileUtils::CreateDirectoryP(const std::string& path) {
+void Files::CreateDirectoryP(const std::string& path) {
     if (!std::filesystem::exists(path)) {
         std::filesystem::create_directory(path);
     }
 }
 
-void FileUtils::DeleteFileF(const std::string& path) {
+void Files::DeleteFileF(const std::string& path) {
     if (std::filesystem::exists(path)) {
         std::filesystem::remove(path);
     }
 }
 
-bool FileUtils::FileExists(std::string path) {
+bool Files::FileExists(std::string path) {
     std::ifstream f(path.c_str());
     return f.good();
 }
 
-void FileUtils::InitFileSystem() {
+void Files::InitFileSystem() {
     try {
         CreateDirectoryP(AssetsFolder);
         CreateDirectoryP(ConfigFolder);
@@ -44,5 +44,5 @@ void FileUtils::InitFileSystem() {
 }
 
 
-std::string AssetsFolder = FileUtils::GetRoamingPath() + "\\Assets";
-std::string ConfigFolder = FileUtils::GetRoamingPath() + "\\Config";
+std::string AssetsFolder = Files::GetRoamingPath() + "\\Assets";
+std::string ConfigFolder = Files::GetRoamingPath() + "\\Config";

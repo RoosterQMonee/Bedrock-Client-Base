@@ -15,7 +15,7 @@ Detour::Detour(std::string name, uintptr_t addr, void* detour)
 
     const MH_STATUS result = MH_CreateHook(FuncPtr, detour, &Original);
 
-    Logger::Write<LogLevel::INFO>("Detour", ("Created detour for " + name + " at: " + MiscUtils::GetModuleOfAddress(addr) + ", Status: " + MH_StatusToString(result)).c_str());
+    Logger::Write<LogLevel::INFO>("Detour", ("Created detour for " + name + " at: " + Misc::GetModuleOfAddress(addr) + ", Status: " + MH_StatusToString(result)).c_str());
 }
 
 void Detour::Enable() const

@@ -48,7 +48,8 @@ void mouseDetour(void* _this, __int8 mouseButton, bool isDown, __int16 mouseX, _
     void* original = mouseCallbackDetour.get()->Original;
     auto oFunc = Memory::GetFastcall<void, void*, __int8, bool, __int16, __int16, __int16, __int16, int>(original);
 
-    oFunc(_this, mouseButton, isDown, mouseX, mouseY, relX, relY, a8);
+    if (!MCBE8::Globals.RenderUI)
+        oFunc(_this, mouseButton, isDown, mouseX, mouseY, relX, relY, a8);
 }
 
 

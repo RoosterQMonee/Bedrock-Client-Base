@@ -4,7 +4,7 @@
 #include <windows.h>
 
 
-std::string MiscUtils::GetRoamingPath()
+std::string Misc::GetRoamingPath()
 {
     char* path = nullptr;
     size_t length;
@@ -17,11 +17,11 @@ std::string MiscUtils::GetRoamingPath()
     return std::string(path) + "\\..\\Local\\Packages\\Microsoft.MinecraftUWP_8wekyb3d8bbwe\\RoamingState";
 };
 
-uint64_t MiscUtils::GetCurrentMs() {
+uint64_t Misc::GetCurrentMs() {
 	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
-std::string MiscUtils::GetModuleOfAddress(uintptr_t address) {
+std::string Misc::GetModuleOfAddress(uintptr_t address) {
     MEMORY_BASIC_INFORMATION mbi;
     if (VirtualQuery((void*)address, &mbi, sizeof(mbi))) {
         char moduleName[MAX_PATH];
@@ -35,5 +35,19 @@ std::string MiscUtils::GetModuleOfAddress(uintptr_t address) {
         }
     }
     return std::string(String::ToHex(address));
+}
 
+std::string Misc::RandString(const int len) {
+    static const char alphanum[] =
+        "0123456789"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz";
+    std::string tmp_s;
+    tmp_s.reserve(len);
+
+    for (int i = 0; i < len; ++i) {
+        tmp_s += alphanum[rand() % (sizeof(alphanum) - 1)];
+    }
+
+    return tmp_s;
 }

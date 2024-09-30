@@ -4,13 +4,14 @@
 #include <Psapi.h>
 #include <cstdio>
 
+#include <MCBE8/Hooks/HookManager.h>
+#include <MCBE8/Modules/ModuleManager.h>
+#include <SDK/SignatureManager.h>
+
 #include <Utils/System/Exceptions.h>
 #include <Utils/Logger/Logger.h>
 #include <Utils/System/Window.h>
 #include <Utils/System/Misc.h>
-
-#include <SDK/SignatureManager.h>
-#include <MCBE8/Hooks/HookManager.h>
 #include <Utils/Memory/Memory.h>
 #include <Utils/System/Files.h>
 
@@ -23,10 +24,10 @@ void AwaitShutdown();
 
 
 void MCBE8::Init() {
-	MCBE8::ClientVersion = { 1, 2 };
+	MCBE8::ClientVersion = { 1, 4 };
 	MCBE8::Globals = DEFAULT_CONFIG;
 	MCBE8::Globals.ScreenData = ScreenInfo{ GetSystemMetrics(SM_CYSCREEN), GetSystemMetrics(SM_CXSCREEN) };
-	uint64_t StartInjectTime = MiscUtils::GetCurrentMs();
+	uint64_t StartInjectTime = Misc::GetCurrentMs();
 
 	CreateConsole();
 	Exceptions::Init();
@@ -34,11 +35,12 @@ void MCBE8::Init() {
 	if (!InitializeKiero())
 		goto shutdown_client;
 
-	FileUtils::InitFileSystem();
+	Files::InitFileSystem();
 	SignatureManager::Init();
 	HookManager::Init();
+	ModuleManager::Init();
 
-	Logger::Write<LogLevel::INFO>("Init", "MCBE8 injected in ", MiscUtils::GetCurrentMs() - StartInjectTime, "ms");
+	Logger::Write<LogLevel::INFO>("Init", "MCBE8 injected in ", Misc::GetCurrentMs() - StartInjectTime, "ms");
 
 	AwaitShutdown();
 

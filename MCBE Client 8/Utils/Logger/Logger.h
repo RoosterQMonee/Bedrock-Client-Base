@@ -7,7 +7,6 @@
 #include <cstdarg>
 
 
-// i spent literal hours on some shitty logger class just for it to be std::cout.
 
 enum class LogLevel {
     DEBUG,

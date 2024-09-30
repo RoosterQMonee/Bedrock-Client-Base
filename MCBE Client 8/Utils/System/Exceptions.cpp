@@ -33,7 +33,7 @@ LONG WINAPI TopLevelExceptionHandler(const PEXCEPTION_POINTERS pExceptionInfo)
             exceptionParams +
             exceptionContextRecord +
             "\n\n" + "Base offset: " +
-            MiscUtils::GetModuleOfAddress(reinterpret_cast<uintptr_t>(pExceptionInfo->ExceptionRecord->ExceptionAddress))
+            Misc::GetModuleOfAddress(reinterpret_cast<uintptr_t>(pExceptionInfo->ExceptionRecord->ExceptionAddress))
         ).c_str(),
         "kaboom", MB_RETRYCANCEL | MB_ICONERROR
     );
