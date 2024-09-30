@@ -527,6 +527,9 @@
     <ClInclude Include="MCBE8\Hooks\Hooks\Render\D3D.h" />
     <ClInclude Include="MCBE8\Modules\Module.h" />
     <ClInclude Include="MCBE8\Modules\ModuleManager.h" />
+    <ClInclude Include="MCBE8\Modules\Modules\Client\ClickGUI.h" />
+    <ClInclude Include="MCBE8\Modules\Modules\Visual\ArrayList.h" />
+    <ClInclude Include="MCBE8\Settings\BoolSetting.h" />
     <ClInclude Include="MCBE8\Settings\NumberSetting.h" />
     <ClInclude Include="MCBE8\Settings\Setting.h" />
     <ClInclude Include="SDK\Math\Math.h" />
@@ -540,6 +543,7 @@
     <ClInclude Include="Utils\Data\Formatting.h" />
     <ClInclude Include="Utils\Data\Keys.h" />
     <ClInclude Include="Utils\Data\Math.h" />
+    <ClInclude Include="Utils\Render\Render.h" />
     <ClInclude Include="Utils\System\Files.h" />
     <ClInclude Include="Utils\Includes.h" />
     <ClInclude Include="Utils\Memory\Detour.h" />

@@ -112,29 +112,8 @@ static bool init = false;
 void RenderGUI() {
 	ImGui::NewFrame();
 	{
-		if (MCBE8::Globals.RenderUI) {
-			ImGuiWindowFlags TargetFlags = ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_AlwaysAutoResize;
-
-			ImGuiIO& io = ImGui::GetIO();
-
-			ImGui::SetNextWindowPos(ImVec2(io.DisplaySize.x * 0.5f, io.DisplaySize.y * 0.5f), ImGuiCond_Always, ImVec2(0.5f, 0.5f));
-
-			if (ImGui::Begin(("BRC"), 0, TargetFlags)) {
-				ImGui::Text("BRC");
-
-//				if (ImGui::CollapsingHeader("Visuals", ImGuiTreeNodeFlags_DefaultOpen)) {
-//					for (Module* module : BRC::module_manager.getModulesInCategory(ModuleCategory::VISUAL)) {
-//						module->renderImGui();
-//					}
-//				}
-//
-				ImGui::End();
-			}
-
-			//for (Module* module : BRC::module_manager.getModulesInCategory(ModuleCategory::VISUAL)) {
-			//	module->renderAutonomousImGui();
-			//}
-		}
+		auto event = nes::make_holder<ImGuiRenderEvent>();
+		MCBE8::EventDispatcher.trigger(event);
 	}
 
 	ImGui::Render();

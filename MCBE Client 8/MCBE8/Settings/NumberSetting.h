@@ -19,8 +19,9 @@ struct NumberSettingConfig {
 template <typename T>
 class NumberSetting : public Setting {
 public:
-	NumberSetting(std::string name, std::string description, T value, T min, T max) : Name(name), Description(description) {
-		assert(constexpr(std::is_arithmetic_v<T>) && "NumberSetting value is not an arithmetic type!");
+	NumberSetting(std::string name, std::string description, T value, T min, T max) {
+		this->Name = name;
+		this->Description = description;
 		this->Config = NumberSettingConfig<T>{ value, min, max };
 	}
 
@@ -33,12 +34,12 @@ public:
 	}
 
 	void RenderSettings() override {
-		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() - (ImGui::CalcTextSize(this->GetName().c_str()).x * 1.5));
-		ImGui::SliderFloat((this->GetName() + "##" + this->differentiator).c_str(), &this->stored, this->minv, this->maxv, this->format);
+		ImGui::SetNextItemWidth(ImGui::GetWindowWidth() - (ImGui::CalcTextSize(this->Name.c_str())).x * 1.5);
+		ImGui::SliderFloat(std::string(this->Name + "##" + this->differentiator).c_str(), &this->Config.Value, this->Config.Min, this->Config.Min, "%.2f");
 
 		if (ImGui::IsItemHovered()) {
 			ImGui::BeginTooltip();
-			ImGui::Text(this->GetDesc().c_str());
+			ImGui::Text(this->Description.c_str());
 			ImGui::EndTooltip();
 		}
 	}

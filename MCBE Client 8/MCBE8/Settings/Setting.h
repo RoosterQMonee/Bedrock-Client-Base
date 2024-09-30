@@ -9,7 +9,7 @@ public:
 	std::string Name;
 	std::string Description;
 
-	std::string differentiator = MiscUtils::RandString(24);
+	std::string differentiator = Misc::RandString(24);
 
 	virtual void RenderSettings() {};
 };

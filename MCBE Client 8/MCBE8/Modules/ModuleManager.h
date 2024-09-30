@@ -5,7 +5,7 @@
 
 class ModuleManager {
 public:
-	static void Init() {}
+	static void Init();
 
 	static void HandleKeybinds(uint64_t key, bool held);
 	static void RegisterModule(Module* mod);

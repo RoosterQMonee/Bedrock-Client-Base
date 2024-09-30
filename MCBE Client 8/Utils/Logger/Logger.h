@@ -28,4 +28,12 @@ public:
         ((std::cout << rest), ...);
         std::cout << std::endl;
     }
+
+    template<LogLevel ll, class T, class ... U >
+    static void WriteCR(std::string sender, const T& first, const U&... rest)
+    {
+        std::cout << levelPrefixes[ll] << "[" << sender << "] " << first;
+        ((std::cout << rest), ...);
+        std::cout << "\r";
+    }
 };

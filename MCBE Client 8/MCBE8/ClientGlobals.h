@@ -36,7 +36,7 @@ struct ClientGlobals {
 
 inline ClientGlobals DEFAULT_CONFIG = ClientGlobals{
 	/* Running       */ true,
-	/* RenderUI      */ true,
+	/* RenderUI      */ false,
 	/* ScreenInfo    */ {0,0},
 	/* RenderMethod  */ kiero::RenderType::D3D12,
 	/* ShutdownKey   */ {0x11, 'L'}, // VK_CTRL and 76

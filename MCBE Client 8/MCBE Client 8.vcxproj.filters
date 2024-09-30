@@ -1238,6 +1238,18 @@
     <ClInclude Include="Utils\Data\Keys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MCBE8\Modules\Modules\Client\ClickGUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MCBE8\Modules\Modules\Visual\ArrayList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Render\Render.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MCBE8\Settings\BoolSetting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\glm\detail\func_common.inl">
